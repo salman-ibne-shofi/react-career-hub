@@ -4,6 +4,9 @@ import { CiMail } from "react-icons/ci";
 import { MdLocationOn } from "react-icons/md";
 import { AiOutlineDollar } from "react-icons/ai";
 import { IoCalendarOutline } from "react-icons/io5";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { saveJobApplication } from "../../utility/localstorage";
 
 const JobDetails = () => {
 	const jobs = useLoaderData();
@@ -19,6 +22,11 @@ const JobDetails = () => {
 		job_title,
 		salary,
 	} = job;
+
+	const handleApplyJob = () => {
+		saveJobApplication(id);
+		toast("You have applied successfully");
+	};
 
 	return (
 		<div>
@@ -65,11 +73,15 @@ const JobDetails = () => {
 						<MdLocationOn className="text-2xl mr-2"></MdLocationOn>
 						Address : {contact_information.address}
 					</div>
-					<button className="btn bg-cyan-500 w-full text-white mt-4">
+					<button
+						onClick={handleApplyJob}
+						className="btn bg-cyan-500 w-full text-white mt-4"
+					>
 						Apply Now
 					</button>
 				</div>
 			</div>
+			<ToastContainer />
 		</div>
 	);
 };
