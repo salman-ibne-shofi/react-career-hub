@@ -64,7 +64,7 @@ const AppliedJobs = () => {
 				{displayJobs.map((job) => (
 					<li key={job.id}>
 						<span>
-							{job.job_title} {job.company_name}{" "}
+							{job.job_title} {job.company_name}
 							{job.remote_or_onsite}
 						</span>
 					</li>
