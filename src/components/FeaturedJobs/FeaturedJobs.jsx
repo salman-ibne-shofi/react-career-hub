@@ -12,6 +12,12 @@ const FeaturedJobs = () => {
 			.then((data) => setJobs(data));
 	}, []);
 
+	try {
+		console.log(jobs);
+	} catch (e) {
+		console.error(e);
+	}
+
 	return (
 		<div>
 			<div className="text-center">
