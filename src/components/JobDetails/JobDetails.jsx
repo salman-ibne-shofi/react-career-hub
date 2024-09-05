@@ -7,6 +7,7 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { saveJobApplication } from "../../utility/localstorage";
+import { Helmet } from "react-helmet-async";
 
 const JobDetails = () => {
 	const jobs = useLoaderData();
@@ -30,6 +31,9 @@ const JobDetails = () => {
 
 	return (
 		<div>
+			<Helmet>
+				<title>Job details: {id}</title>
+			</Helmet>
 			<div className="grid gap-4 md:grid-cols-4">
 				<div className="border md:col-span-3 p-4">
 					<h2 className="text-2xl font-bold">
